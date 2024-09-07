@@ -1,4 +1,6 @@
 
+
+
 !inicializar_fechadura.
 
 +!inicializar_fechadura
@@ -9,11 +11,11 @@
 +movimento_macaneta <- !verificar_fechada.
 
 +!verificar_fechada: trancada(true) 
-  <-  .print("Alguem mexeu na MA�ANETA! mas n�o conseguiu abrir pois est� TRANCADA").
+  <-  .print("Alguem mexeu na MAÇANETA! mas não conseguiu abrir pois está TRANCADA").
 +!verificar_fechada: fechada(true)
-  <-  .print("Alguem mexeu na MA�ANETA! e FECHOU a porta!").
+  <-  .print("Alguem mexeu na MAÇANETA! e FECHOU a porta!").
 +!verificar_fechada: fechada(false)
-  <-  .print("Alguem mexeu na MA�ANETA! e ABRIU a porta!").
+  <-  .print("Alguem mexeu na MAÇANETA! e ABRIU a porta!").
   
 +movimento_fechadura <- !verificar_trancada.
 

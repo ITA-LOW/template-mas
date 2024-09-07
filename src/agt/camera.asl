@@ -23,3 +23,4 @@ conceder_acesso("Jonas", "frente").
   .send(ar_condicionado, tell, climatizar_pref(P));
   .send(cortina, tell, abrir_cortina_pref(P));
   .send(lampada, tell, ajustar_iluminacao_pref(P)).
+
