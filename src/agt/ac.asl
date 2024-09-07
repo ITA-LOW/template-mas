@@ -2,7 +2,8 @@
 
 /* Initial beliefs and rules */
 
-temperatura_de_preferencia(jonas,25).
+temperatura_de_preferencia(jonas,15).
+
 
 /* Initial goals */
 
@@ -11,8 +12,8 @@ temperatura_de_preferencia(jonas,25).
 +!inicializar_AC
   <- 	makeArtifact("ac_quarto","artifacts.AC",[],D);
   	   	focus(D);
-  	   	!definir_temperatura;
-  	   	!!climatizar.
+  	   	!definir_temperatura.
+  	   	//!!climatizar.
 
 +alterado : temperatura_ambiente(TA) & temperatura_ac(TAC)
   <-  .drop_intention(climatizar);
@@ -24,9 +25,9 @@ temperatura_de_preferencia(jonas,25).
 +closed  <-  .print("Close event from GUIInterface").
    
  +!definir_temperatura: temperatura_ambiente(TA) & temperatura_ac(TAC) 
- 			& temperatura_de_preferencia(User,TP) & TP \== TD & ligado(false)
+ 			& temperatura_de_preferencia(P,TP) & TP \== TD & ligado(false)
  	<-  definir_temperatura(TP);
- 		.print("Definindo temperatura baseado na prefer�ncia do usu�rio ", User);
+ 		.print("Definindo temperatura baseado na preferencia do usurio ", P);
  		.print("Temperatura: ", TP).
  	
  +!definir_temperatura: temperatura_ambiente(TA) & temperatura_ac(TAC) & ligado(false)
@@ -58,5 +59,11 @@ temperatura_de_preferencia(jonas,25).
  +!climatizar 
  	<- 	.print("Nao foram implementadas outras opcoes");
  		.print("TEMPERATURA REGULARIZADA").
+
++climatizar_pref(P): temperatura_ambiente(TA) & temperatura_ac(TAC) & TA \== TAC & ligado(false)
+	<- ligar;
+	.print(P, " está em casa, climatizando o ambiente.");
+	.wait(1000);
+ 	!!climatizar.
 
 

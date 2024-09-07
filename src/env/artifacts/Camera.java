@@ -128,9 +128,9 @@ class InterfaceAC extends JFrame {
 						
 			JPanel panel = new JPanel();
 			JLabel pessoaL = new JLabel();
-			pessoaL.setText("Temperatura Atual:    ");
+			pessoaL.setText("Pessoa:    ");
 			JLabel localL = new JLabel();
-			localL.setText("Temperatura Desejada: ");
+			localL.setText("Local: ");
 			setContentPane(panel);
 			
 			okButton = new JButton("ok");
