@@ -2,7 +2,7 @@
 
 /* Initial beliefs and rules */
 
-temperatura_de_preferencia(jonas,15).
+temperatura_de_preferencia(jonas,33).
 
 
 /* Initial goals */

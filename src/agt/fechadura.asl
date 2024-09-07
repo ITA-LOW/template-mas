@@ -43,7 +43,7 @@
  		.print("TRANQUEI a porta!");
  		!trancar_porta.
 
-+destrancar_porta
++destrancar_porta: trancada(true)
   <- destrancar;
      .print("Porta destrancada por solicitação do agente camera!");
 	 !verificar_trancada.

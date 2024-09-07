@@ -25,4 +25,4 @@ nivel_lumens_pref(600).
 +ajustar_iluminacao_pref(P): nivel_lumens_pref(NL) & ligada(false)
 	<- 	ligar;
 		!verificar_lampada;
-		.print(P, " está em casa, ajustando nível de iluminação para ", NL, "lumens.").
+		.print(P, " está em casa, ajustando nível de iluminação para ", NL, " lumens.").

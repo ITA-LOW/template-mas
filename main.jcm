@@ -22,7 +22,7 @@ mas main {
     agent fechadura: fechadura.asl
 
 
-    workspace w {
+    /* workspace w {
       artifact c1: example.Counter(3) 
-    }
+    } */
 }
