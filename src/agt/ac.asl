@@ -4,7 +4,6 @@
 
 temperatura_de_preferencia(jonas,33).
 
-
 /* Initial goals */
 
 !inicializar_AC.
@@ -17,7 +16,7 @@ temperatura_de_preferencia(jonas,33).
 
 +alterado : temperatura_ambiente(TA) & temperatura_ac(TAC)
   <-  .drop_intention(climatizar);
-  	  .print("Houve intera��o com o AC");
+  	  .print("Houve interação com o AC");
   	  .print("Temperatura Ambiente: ", TA);
  	  .print("Temperatura Desejada: ", TAC);
   	  !!climatizar.
@@ -56,11 +55,11 @@ temperatura_de_preferencia(jonas,33).
  		.print("Temperatura Ambiente: ", TA);
  		.print("Temperatura Desejada: ", TAC).
 
- +!climatizar 
+ +!climatizar
  	<- 	.print("Nao foram implementadas outras opcoes");
  		.print("TEMPERATURA REGULARIZADA").
 
-+climatizar_pref(P): temperatura_ambiente(TA) & temperatura_ac(TAC) & TA \== TAC & ligado(false)
++climatizar_pref(P): temperatura_ambiente(TA) & temperatura_de_preferencia(_, TP) & TA \== TP & ligado(false)
 	<- ligar;
 	.print(P, " está em casa, climatizando o ambiente.");
 	.wait(1000);
