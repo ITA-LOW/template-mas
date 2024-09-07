@@ -1,4 +1,5 @@
-conceder_acesso("Jonas", "frente").
+acessou_entrada("Jonas", "entrada").
+acessou_saida("Jonas", "saida").
 
 
 !inicializar_camera.
@@ -13,14 +14,24 @@ conceder_acesso("Jonas", "frente").
 
 +closed  <-  .print("Close event from GUIInterface").
 
-+!verificar_pessoa: pessoa_presente(P) & local(L)
++!verificar_pessoa: pessoa_presente(P) & local(L) & L == "entrada"
  	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
   !!conceder(P,L).
 
-+!conceder(P,L): conceder_acesso(P, L) 
++!verificar_pessoa: pessoa_presente(P) & local(L) & L == "saida"
+ 	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
+  !!saida(P,L).
+
++!conceder(P,L): acessou_entrada(P, L) 
   <- .print("Acesso concedido a ", P);
-  .send(fechadura, tell, destrancar_porta);
+  .send(fechadura, achieve, destrancar_porta);
   .send(ar_condicionado, tell, climatizar_pref(P));
-  .send(cortina, tell, abrir_cortina_pref(P));
-  .send(lampada, tell, ajustar_iluminacao_pref(P)).
+  .send(cortina, achieve, abrir_cortina_pref(P));
+  .send(lampada, achieve, ajustar_iluminacao_pref(P)).
+
++!saida(P,L): acessou_saida(P,L)
+  <- .print(P, " saiu de casa");
+      .send(fechadura, achieve, fechar_porta);
+      .send(cortina, achieve, fechar_cortinas);
+      .send(lampada, achieve, desligar_lampada).
 

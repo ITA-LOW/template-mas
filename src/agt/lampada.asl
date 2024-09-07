@@ -22,7 +22,11 @@ nivel_lumens_pref(600).
  	<-  ligar;
  		.print("Liguei a Lampada!").
 
-+ajustar_iluminacao_pref(P): nivel_lumens_pref(NL) & ligada(false)
++!ajustar_iluminacao_pref(P): nivel_lumens_pref(NL) & ligada(false)
 	<- 	ligar;
 		!verificar_lampada;
 		.print(P, " está em casa, ajustando nível de iluminação para ", NL, " lumens.").
+
++!desligar_lampada
+ 	<-  desligar;
+ 		.print("Desliguei a Lampada!").
