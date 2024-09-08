@@ -47,3 +47,7 @@
   <- destrancar;
      .print("Porta destrancada por solicitação do agente camera!");
 	 !verificar_trancada.
+
++!hell_mode
+	<-	.print("Ativando Hell Mode.");
+		!fechar_porta.

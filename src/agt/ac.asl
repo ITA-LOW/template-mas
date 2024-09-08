@@ -3,6 +3,7 @@
 /* Initial beliefs and rules */
 
 temperatura_de_preferencia(jonas,33).
+temperatura_hell_mode(50).
 
 /* Initial goals */
 
@@ -22,13 +23,18 @@ temperatura_de_preferencia(jonas,33).
   	  !!climatizar.
       
 +closed  <-  .print("Close event from GUIInterface").
-   
+
  +!definir_temperatura: temperatura_ambiente(TA) & temperatura_ac(TAC) 
  			& temperatura_de_preferencia(P,TP) & TP \== TD & ligado(false)
  	<-  definir_temperatura(TP);
  		.print("Definindo temperatura baseado na preferencia do usurio ", P);
  		.print("Temperatura: ", TP).
- 	
+
+ +!definir_temperatura: temperatura_hell_mode(H) & H \== TAC
+ 	<-  definir_temperatura(H);
+ 		.print("Definindo temperatura Hell Mode: ", H);
+ 		.print("Temperatura: ", H).
+
  +!definir_temperatura: temperatura_ambiente(TA) & temperatura_ac(TAC) & ligado(false)
  	<-  .print("Usando ultima temperatura");
  		.print("Temperatura: ", TAC).
@@ -62,7 +68,16 @@ temperatura_de_preferencia(jonas,33).
 +climatizar_pref(P): temperatura_ambiente(TA) & temperatura_de_preferencia(_, TP) & TA \== TP & ligado(false)
 	<- ligar;
 	.print(P, " está em casa, climatizando o ambiente.");
-	.wait(1000);
+	.wait(1);
  	!!climatizar.
+
++!hell_mode: temperatura_ambiente(TA) & temperatura_ac(TAC) & temperatura_hell_mode(H) & TA \== H & ligado(false)
+	<- 	ligar;
+		!definir_temperatura;
+		.print("Iniciando Hell Mode, temperatura ajustada para ", H, " graus");
+		.wait(1);
+		!!climatizar.
+
+
 
 

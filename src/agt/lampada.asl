@@ -30,3 +30,19 @@ nivel_lumens_pref(600).
 +!desligar_lampada
  	<-  desligar;
  		.print("Desliguei a Lampada!").
+
++!hell_mode
+	<- 	.print("Ativando Hell Mode.");
+		!!alternar_lampada.
+
++!alternar_lampada: ligada(false)
+    <-  ligar;
+        .print("Liguei a lâmpada");
+        .wait(1000);
+        !alternar_lampada.  
+
++!alternar_lampada: ligada(true)
+	<-	desligar;
+        .print("Desliguei a lâmpada");
+        .wait(1000);
+        !alternar_lampada.  

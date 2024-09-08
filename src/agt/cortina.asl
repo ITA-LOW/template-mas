@@ -29,4 +29,8 @@ nivel_abertura_pref(50).
 	<- 	fechar;
 		+nivel_abertura(0);
 		.print("Fechei as cortinas.").
+
++!hell_mode
+	<-	.print("Ativando Hell Mode.");
+		!fechar_cortinas.
   

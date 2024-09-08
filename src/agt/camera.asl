@@ -22,6 +22,10 @@ acessou_saida("Jonas", "saida").
  	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
   !!saida(P,L).
 
++!verificar_pessoa: pessoa_presente(P) & local(L) & P \== "Jonas"
+ 	<-  .print("Pessoa desconhecida observada no local ", L);
+  !!protocolo_de_seguranca(P,L).
+
 +!conceder(P,L): acessou_entrada(P, L) 
   <- .print("Acesso concedido a ", P);
   .send(fechadura, achieve, destrancar_porta);
@@ -34,4 +38,10 @@ acessou_saida("Jonas", "saida").
       .send(fechadura, achieve, fechar_porta);
       .send(cortina, achieve, fechar_cortinas);
       .send(lampada, achieve, desligar_lampada).
+  
++!protocolo_de_seguranca(P,L)
+  <-  .print("Alguém quebrou a segurança e foi identificado no local ", L);
+      .print("Ativando Hell Mode, todos os agentes em posição de batalha");
+      .print("Alexa: coloca aquela do Linkin Park que o pau vai quebrar.");
+      .broadcast(achieve, hell_mode).
 
