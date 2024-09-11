@@ -14,11 +14,11 @@ acessou_saida("Jonas", "saida").
 
 +closed  <-  .print("Close event from GUIInterface").
 
-+!verificar_pessoa: pessoa_presente(P) & local(L) & L == "entrada"
++!verificar_pessoa: pessoa_presente(P) & local("entrada")
  	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
   !!conceder(P,L).
 
-+!verificar_pessoa: pessoa_presente(P) & local(L) & L == "saida"
++!verificar_pessoa: pessoa_presente(P) & local("saida")
  	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
   !!saida(P,L).
 
