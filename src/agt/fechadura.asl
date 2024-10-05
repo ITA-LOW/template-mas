@@ -49,5 +49,5 @@
 	 !verificar_trancada.
 
 +!hell_mode
-	<-	.print("Ativando Hell Mode.");
+	<-	.print("Ativando modo de segurança.");
 		!fechar_porta.

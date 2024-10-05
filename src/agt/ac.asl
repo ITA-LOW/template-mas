@@ -32,7 +32,7 @@ temperatura_hell_mode(50).
 
  +!definir_temperatura: temperatura_hell_mode(H) & H \== TAC
  	<-  definir_temperatura(H);
- 		.print("Definindo temperatura Hell Mode: ", H);
+ 		.print("Definindo temperatura modo de segurança: ", H);
  		.print("Temperatura: ", H).
 
  +!definir_temperatura: temperatura_ambiente(TA) & temperatura_ac(TAC) & ligado(false)
@@ -74,7 +74,7 @@ temperatura_hell_mode(50).
 +!hell_mode: temperatura_ambiente(TA) & temperatura_ac(TAC) & temperatura_hell_mode(H) & TA \== H & ligado(false)
 	<- 	ligar;
 		!definir_temperatura;
-		.print("Iniciando Hell Mode, temperatura ajustada para ", H, " graus");
+		.print("Iniciando modo de segurança, temperatura ajustada para ", H, " graus");
 		.wait(1);
 		!!climatizar.
 

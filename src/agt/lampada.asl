@@ -32,7 +32,7 @@ nivel_lumens_pref(600).
  		.print("Desliguei a Lampada!").
 
 +!hell_mode
-	<- 	.print("Ativando Hell Mode.");
+	<- 	.print("Ativando modo de segurança.");
 		!!alternar_lampada.
 
 +!alternar_lampada: ligada(false)

@@ -15,11 +15,11 @@ acessou_saida("Jonas", "saida").
 +closed  <-  .print("Close event from GUIInterface").
 
 +!verificar_pessoa: pessoa_presente(P) & local("entrada")
- 	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
+ 	<-  .print("Pessoa: ", P, " reconhecida no local entrada");
   !!conceder(P,L).
 
 +!verificar_pessoa: pessoa_presente(P) & local("saida")
- 	<-  .print("Pessoa: ", P, " reconhecida no local ", L);
+ 	<-  .print("Pessoa: ", P, " reconhecida no local saída");
   !!saida(P,L).
 
 +!verificar_pessoa: pessoa_presente(P) & local(L) & P \== "Jonas"
@@ -41,7 +41,6 @@ acessou_saida("Jonas", "saida").
   
 +!protocolo_de_seguranca(P,L)
   <-  .print("Alguém quebrou a segurança e foi identificado no local ", L);
-      .print("Ativando Hell Mode, todos os agentes em posição de batalha");
-      .print("Alexa: coloca aquela do Linkin Park que o pau vai quebrar.");
+      .print("Ativando modo de segurança, todos os agentes em posição de batalha");
       .broadcast(achieve, hell_mode).
 
